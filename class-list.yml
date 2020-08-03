@@ -2,13 +2,10 @@
   connection: local
   gather_facts: no
   vars:
-    classs_list:
-      - mhco
-      - ceo
-      - mjo
+    classs_size: 1
       -
   tasks:
     - name: Dump Class List
       debug:
         msg: "{{ item }}"
-      with_items: "{{ classs_list }}"
+      with_sequence: count={{ class_size }} 
